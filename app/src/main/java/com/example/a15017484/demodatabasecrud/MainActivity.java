@@ -21,15 +21,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //initialize the variables with UI here
-
         al = new ArrayList<String>();
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnRetrieve = (Button) findViewById(R.id.btnRetrieve);
         btnEdit = (Button) findViewById(R.id.btnEdit);
         etContent = (EditText) findViewById(R.id.etContent);
         tvDBContent = (TextView) findViewById(R.id.tvDBContent);
-
-
+        //Add
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        //Retrieve
         btnRetrieve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

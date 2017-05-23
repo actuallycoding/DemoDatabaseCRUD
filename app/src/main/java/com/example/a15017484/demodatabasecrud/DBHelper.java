@@ -9,6 +9,8 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import static android.graphics.PorterDuff.Mode.ADD;
+
 /**
  * Created by 15017484 on 23/5/2017.
  */
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "simplenotes.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String TABLE_NOTE = "note";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_NOTE_CONTENT = "note_content";
@@ -46,8 +48,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTE);
-        onCreate(db);
+        db.execSQL("ALTER TABLE " + TABLE_NOTE + " ADD COLUMN module_name TEXT ");
+
+
     }
 
     public long insertNote(String noteContent) {

@@ -7,7 +7,7 @@ package com.example.a15017484.demodatabasecrud;
 public class Note {
     private int id;
     private String noteContent;
-    
+
     public void setNoteContent(String noteContent) {
         this.noteContent = noteContent;
     }

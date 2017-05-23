@@ -15,6 +15,7 @@ public class EditActivity extends AppCompatActivity {
     EditText etContent;
     Button btnUpdate, btnDelete;
     Note data;
+    DBHelper dbh = new DBHelper(EditActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,6 @@ public class EditActivity extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBHelper dbh = new DBHelper(EditActivity.this);
                 Intent i = new Intent();
                 data.setNoteContent(etContent.getText().toString());
                 dbh.updateNote(data);
@@ -48,11 +48,9 @@ public class EditActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBHelper dbh = new DBHelper(EditActivity.this);
                 Intent i = new Intent();
                 dbh.deleteNote(data.getId());
                 dbh.close();
-
                 setResult(RESULT_OK, i);
                 finish();
             }

@@ -18,6 +18,7 @@ public class Note implements Serializable {
         this.id = id;
         this.noteContent = noteContent;
     }
+
     public int getId() {
         return id;
     }
@@ -25,4 +26,10 @@ public class Note implements Serializable {
     public String getNoteContent() {
         return noteContent;
     }
+
+    @Override
+    public String toString() {
+        return "ID:" + id + ", " + noteContent;
+    }
+
 }
